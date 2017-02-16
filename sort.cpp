@@ -15,15 +15,28 @@ using namespace std;
 void bubbleSort(auto& data)
 {
     
-    for(int k=1;k < data.size(); k++)
+    bool swapped = true;
+    int passes = 0;
+    string temp;
+  
+    while(swapped)
+      {
+         swapped =false;
+         passes++;
        
-       for(int i=0; i < data.size() -1 -k; i++)
-           
-          if (data[i] > data[i+1])
-            {
-                //pre-defined swap function
-                swap(data[i], data[i+1]);
+         for(int i=0; i < data.size() - passes; i++)
+           {
+             if (data[i] > data[i+1])
+               {
+                 //swap values
+                 temp = data[i];
+                 data[i] = data[i+1];
+                 data[i+1] = temp;
+                     
+                 swapped=true;
+                }
             }
+      }
 }
 
 int linearSearch(auto data, auto key);//prototype
@@ -92,7 +105,7 @@ int main()
     
     bubbleSort(inputs);
     cout << "Sort list :"<< endl;
-   for (int i=0; i < inputs.size(); i++)
+   for (int i=0; i < inputs.size(); ++i)
        {
            cout << inputs[i] << endl;
        }
