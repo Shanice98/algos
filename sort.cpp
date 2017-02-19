@@ -18,6 +18,7 @@ void bubbleSort(auto& data)
     bool swapped = true;
     int passes = 0;
     string temp;
+    int remainder;
   
     while(swapped)
       {
@@ -34,8 +35,14 @@ void bubbleSort(auto& data)
                  data[i+1] = temp;
                      
                  swapped=true;
+                 
+ 
                 }
             }
+          remainder= passes%20000;
+
+          if (remainder == 0)
+             cout<< "Number of passes: "<< passes<<endl;
       }
 }
 
